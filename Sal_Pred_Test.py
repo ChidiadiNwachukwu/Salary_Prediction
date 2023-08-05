@@ -1,12 +1,11 @@
 import streamlit as st
 import pickle
 import numpy as np
-import sklearn
 from sklearn.linear_model import LinearRegression
 
 r=open("regression.pkl","rb")
 regressor=pickle.load(r)
-exp=st.number_input("Experience in Years:",0,42,1)
+exp=st.number_input("Experience in Years:",0,42,1,None,None,None,'Enter value between 1 and 42 years')
 exp=np.array(exp).reshape(1,-1)
 
 prediction=regressor.predict(exp)[0]
